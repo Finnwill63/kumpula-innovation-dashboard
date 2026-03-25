@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kumpula Innovation Signals — v5</title>
+<title>Kumpula Innovation Signals — v7</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
 
@@ -263,6 +263,101 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);fon
 .trend-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--light);margin-bottom:6px}
 .trend-val{font-family:'DM Serif Display',serif;font-size:26px;color:var(--uh-blue);line-height:1}
 .trend-sub{font-size:11px;color:var(--muted);margin-top:3px;font-weight:300}
+
+/* ── Innovation Badges ── */
+.badge-wrap { display:flex; flex-wrap:wrap; gap:3px; margin-top:3px; }
+.inn-badge {
+  display:inline-block; font-size:9.5px; font-weight:700; padding:2px 6px;
+  border-radius:3px; letter-spacing:.3px; cursor:default; white-space:nowrap;
+  line-height:1.4;
+}
+.inn-spinout  { background:#dbeafe; color:#1e40af; border:1px solid #93c5fd; }
+.inn-r2b      { background:#dcfce7; color:#166534; border:1px solid #86efac; }
+.inn-patent   { background:#ede9fe; color:#5b21b6; border:1px solid #c4b5fd; }
+.inn-ecosystem{ background:#fce7f3; color:#9d174d; border:1px solid #f9a8d4; }
+.inn-signal   { background:#fff7ed; color:#92400e; border:1px solid #fcd34d; }
+.th-badges    { text-align:left; font-size:10px; min-width:90px; }
+
+
+/* ── v7: IP Panel & enhanced badges ── */
+
+/* ── IP Panel tab page ── */
+#page-ip { padding:24px 20px; }
+.ip-panel-title { font-size:22px; font-weight:700; color:var(--uh-blue); margin-bottom:4px; }
+.ip-panel-sub   { font-size:13px; color:var(--muted); margin-bottom:20px; }
+
+.ip-stats-row   { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:24px; }
+.ip-stat-card   {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:14px 20px; min-width:130px; flex:1;
+}
+.ip-stat-num    { font-size:28px; font-weight:800; color:var(--uh-blue); line-height:1; }
+.ip-stat-label  { font-size:11px; color:var(--muted); margin-top:4px; font-weight:500; }
+
+.ip-section-hdr {
+  font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--light); border-bottom:1px solid var(--border);
+  padding-bottom:6px; margin:20px 0 12px;
+}
+
+.ip-group-card  {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:14px 16px; margin-bottom:10px;
+  display:flex; align-items:flex-start; gap:14px;
+}
+.ip-group-card:hover { border-color:#93c5fd; box-shadow:0 2px 8px rgba(0,0,80,.07); }
+.ip-left        { min-width:180px; max-width:220px; }
+.ip-gname       { font-size:13px; font-weight:600; color:var(--text); }
+.ip-gdept       { font-size:11px; color:var(--muted); margin-top:2px; }
+.ip-gpi         { font-size:11px; color:var(--light); margin-top:2px; font-style:italic; }
+.ip-right       { flex:1; }
+.ip-badge-row   { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:8px; }
+.ip-badge       {
+  display:inline-block; font-size:10.5px; font-weight:700;
+  padding:3px 9px; border-radius:4px; letter-spacing:.2px;
+}
+.ip-badge-spinout   { background:#dbeafe; color:#1e40af; border:1px solid #93c5fd; }
+.ip-badge-r2b       { background:#dcfce7; color:#166534; border:1px solid #86efac; }
+.ip-badge-patent    { background:#ede9fe; color:#5b21b6; border:1px solid #c4b5fd; }
+.ip-badge-ecosystem { background:#fce7f3; color:#9d174d; border:1px solid #f9a8d4; }
+.ip-badge-signal    { background:#fff7ed; color:#92400e; border:1px solid #fcd34d; }
+.ip-detail      { font-size:11.5px; color:var(--muted); line-height:1.5; }
+.ip-patent-nums { font-size:10.5px; color:#5b21b6; font-family:monospace;
+                  background:#f5f3ff; padding:2px 7px; border-radius:3px;
+                  margin-top:4px; display:inline-block; }
+
+/* ── Heatmap IP column ── */
+.heat-ip-cell   {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:3px; min-height:26px; padding:2px 6px; border-radius:4px;
+  font-size:10px; font-weight:700; flex-wrap:wrap;
+}
+.heat-ip-dot    {
+  width:8px; height:8px; border-radius:50%; flex-shrink:0;
+  display:inline-block;
+}
+.ip-col-th      {
+  text-align:center; min-width:72px;
+  font-size:10px; color:var(--muted); font-weight:600;
+}
+
+/* ── Modal badge row ── */
+.modal-badges   { display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; }
+.modal-badge    {
+  font-size:10px; font-weight:700; padding:2px 7px; border-radius:3px;
+  cursor:default;
+}
+.modal-badge-spinout   { background:#dbeafe; color:#1e40af; }
+.modal-badge-r2b       { background:#dcfce7; color:#166534; }
+.modal-badge-patent    { background:#ede9fe; color:#5b21b6; }
+.modal-badge-ecosystem { background:#fce7f3; color:#9d174d; }
+.modal-badge-signal    { background:#fff7ed; color:#92400e; }
+.modal-patent-ref      {
+  font-size:9.5px; color:#6d28d9; font-family:monospace;
+  background:#f5f3ff; padding:1px 5px; border-radius:2px;
+  display:block; margin-top:3px; word-break:break-all;
+}
+
 </style>
 </head>
 <body>
@@ -298,6 +393,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);fon
   <div class="nav-tab" onclick="showPage('resilience',this)">🛡️ Resilience</div>
   <div class="nav-tab" onclick="showPage('bridge',this)">🔗 Bridge Researchers</div>
   <div class="nav-tab" onclick="showPage('explorer',this)">⊞ All Groups</div>
+  <div class="nav-tab" onclick="showPage('ip',this);buildIpPanel()">💡 IP</div>
 </nav>
 
 <!-- MODAL (drill-down) -->
@@ -411,6 +507,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);fon
             <th onclick="sortExplorer('N')" id="th-N" style="text-align:center">🛰️</th>
             <th onclick="sortExplorer('R')" id="th-R" style="text-align:center">🛡️</th>
             <th id="th-areas" style="text-align:center">Areas</th>
+            <th class="th-badges">IP / Commercialisation</th>
           </tr>
         </thead>
         <tbody id="explorerBody"></tbody>
@@ -819,6 +916,126 @@ const COMMS = {
   ],
 };
 
+const GROUP_BADGES = {
+  2: [
+  {type:'spinout',label:'Spinout',tip:'Karsa — ultra-sensitive chemical detection for security. Partly INAR/ETLA origin but Chemistry analytical expertise.'},
+  ],
+  11: [
+  {type:'r2b',label:'R2B',tip:'SootSense — black carbon monitoring instrument, Prof. Markku Vainio'},
+  {type:'signal',label:'IP Signal',tip:'Patent signal: mid-IR photoacoustic spectroscopy at sub-ppt detection — novel instrumentation, no filing confirmed yet'},
+  ],
+  14: [
+  {type:'r2b',label:'R2B',tip:'HydroxGel — 3D-printable hydrogel bioinks, Prof. Robert Luxenhofer. R2B 2022–2025.'},
+  {type:'patent',label:'Patent ★',tip:'1 granted + 2 pending patents: poly(2-oxazoline)-based hydrogel materials for 3D bioprinting (confirmed by HIS)'},
+  ],
+  18: [
+  {type:'r2b',label:'R2B',tip:'ReLIGHT — plasmonic nanocatalysts for green hydrogen, Prof. Pedro Camargo. Spinout target post-Sept 2025.'},
+  {type:'patent',label:'Patent ★',tip:'Patent filed Oct 2024: AuPt antenna-reactor nanoparticles for green H₂ & NH₃ production from sunlight'},
+  ],
+  31: [
+  {type:'r2b',label:'R2B',tip:'AgentFormers — no-code AI agents for workflow automation, Prof. Sasu Tarkoma (CS Dean)'},
+  ],
+  44: [
+  {type:'spinout',label:'Spinout',tip:'Megasense — IoT air quality platform partially rooted in networking/IoT research.'},
+  ],
+  49: [
+  {type:'spinout',label:'Spinout',tip:'VEIL.AI — AI health data anonymisation. Secure/privacy systems origin.'},
+  ],
+  51: [
+  {type:'spinout',label:'Spinout',tip:'Megasense (active spinout) — AI air quality platform, Prof. Sasu Tarkoma'},
+  {type:'r2b',label:'R2B',tip:'MegaSense (R2B) — same project. Business Finland funded.'},
+  {type:'r2b',label:'R2B',tip:'AgentFormers — no-code AI agents, Prof. Sasu Tarkoma (CS Dean)'},
+  ],
+  87: [
+  {type:'patent',label:'Patent ★',tip:'7 confirmed patents (X-ray CT/EIT reconstruction, shared with ETLA). Active BF grant with Planmed (CBCT).'},
+  ],
+  92: [
+  {type:'ecosystem',label:'Ecosystem',tip:'Algorithmiq — Prof. Maniscalco (Quantum Info, Physics) is CEO & co-founder. €14M raised.'},
+  ],
+  96: [
+  {type:'spinout',label:'Spinout',tip:'Nanoform (listed, Nasdaq) — CESS® multi-patent portfolio'},
+  {type:'spinout',label:'Spinout',tip:'GlucoModicum — Prof. Hæggström is board chair'},
+  {type:'r2b',label:'R2B',tip:'FutuMine — HIFU gold e-waste recycling (corrected from AI)'},
+  {type:'patent',label:'Patent ★',tip:'7 granted patents (X-ray CT/EIT imaging, US×4 FI×2 CN×1) + Nanoform multi-patent CESS® portfolio + 2 WIPO PCT pending (FutuMine: WO2023281159A1, WO2024062155A1)'},
+  ],
+  102: [
+  {type:'r2b',label:'R2B',tip:'IDEAL AQ — UFP (<100nm) monitoring instrument, Dr. Juha Kangasluoma (corrected from water quality)'},
+  {type:'spinout',label:'Spinout',tip:'Karsa — Dr. Kangasluoma is both INAR senior scientist and Karsa scientist (chemical ionisation detection)'},
+  {type:'signal',label:'IP Signal',tip:'Patent signal: UFP instrument design — spinout search active, IP preparation likely imminent'},
+  ],
+  103: [
+  {type:'spinout',label:'Spinout',tip:'Airmodus (acquired 2024 by ENVEA/Carlyle) — Prof. Markku Kulmala co-founder. Exemplary FoS spinout.'},
+  ],
+  104: [
+  {type:'r2b',label:'R2B',tip:'IDEAL AQ — UFP monitoring instrument. Dr. Kangasluoma group active in both AQ and Atmospheric Physical Chemistry.'},
+  ],
+  127: [
+  {type:'r2b',label:'R2B',tip:'SuperBase Solutions — TBD superbase synthesis, Prof. Susanne Wiedmer'},
+  {type:'patent',label:'Patent ★',tip:'1 granted + 1 pending patent: scalable TBD superbase synthesis for plastic recycling, biofuels, CO₂ capture (confirmed by HIS)'},
+  ],
+  128: [
+  {type:'r2b',label:'R2B',tip:'SootSense — black carbon monitoring. Vainio group spans Chemistry and this INAR-adjacent area.'},
+  ],
+};
+
+
+function renderModalBadges(gid) {
+  const badges = GROUP_BADGES[gid];
+  if (!badges || !badges.length) return '';
+  let out = '<div class="modal-badges">';
+  badges.forEach(b => {
+    out += `<span class="modal-badge modal-badge-${b.type}" title="${b.tip}">${b.label}</span>`;
+  });
+  out += '</div>';
+  // Patent numbers block
+  const patents = badges.filter(b => b.type === 'patent');
+  if (patents.length) {
+    patents.forEach(b => {
+      // Extract any patent numbers from tip (WO..., US..., FI... patterns)
+      const nums = b.tip.match(/(?:WO|US|FI|CN|EP)[\d,×xA-Z\.\s]+/g);
+      if (nums) {
+        out += '<span class="modal-patent-ref">📋 ' + nums.join(' · ') + '</span>';
+      }
+    });
+  }
+  return out;
+}
+
+function renderHeatIpCell(dGroups) {
+  let spinouts=0, r2bs=0, patents=0, signals=0, ecosystems=0;
+  dGroups.forEach(g => {
+    const b = GROUP_BADGES[g.id];
+    if (!b) return;
+    b.forEach(badge => {
+      if (badge.type==='spinout')    spinouts++;
+      else if (badge.type==='r2b')   r2bs++;
+      else if (badge.type==='patent') patents++;
+      else if (badge.type==='signal') signals++;
+      else if (badge.type==='ecosystem') ecosystems++;
+    });
+  });
+  if (!spinouts && !r2bs && !patents && !signals && !ecosystems) {
+    return '<span style="color:var(--light);font-size:11px">—</span>';
+  }
+  let dots = '';
+  if (spinouts)   dots += `<span class="heat-ip-dot" style="background:#1e40af" title="${spinouts} spinout(s)"></span>`;
+  if (r2bs)       dots += `<span class="heat-ip-dot" style="background:#166534" title="${r2bs} R2B(s)"></span>`;
+  if (patents)    dots += `<span class="heat-ip-dot" style="background:#5b21b6" title="${patents} patent(s)"></span>`;
+  if (signals)    dots += `<span class="heat-ip-dot" style="background:#92400e" title="${signals} IP signal(s)"></span>`;
+  if (ecosystems) dots += `<span class="heat-ip-dot" style="background:#9d174d" title="${ecosystems} ecosystem co."></span>`;
+  return '<div class="heat-ip-cell">' + dots + '</div>';
+}
+
+function renderBadges(gid) {
+  const badges = GROUP_BADGES[gid];
+  if (!badges || badges.length === 0) return '';
+  const html = badges.map(b =>
+    `<span class="inn-badge inn-${b.type}" title="${b.tip}">${b.label}</span>`
+  ).join('');
+  return `<div class="badge-wrap">${html}</div>`;
+}
+
+
 const AREA_KEYS  = ['AI','Q','A','M','Ma','N','R'];
 const AREA_LABELS = ['Artificial Intelligence','Quantum Science','Atmosphere & Climate','New Materials','Math & Inversion','Near-Earth Space','Resilience & Security'];
 const AREA_SHORT  = ['AI','Quantum','Atmosphere','Materials','Math','Near Space','Resilience'];
@@ -958,7 +1175,7 @@ function buildHeatmap() {
       </div>
     </th>`;
   });
-  html += '<th style="text-align:center;min-width:50px;font-size:10px">Total</th></tr></thead><tbody>';
+  html += '<th style="text-align:center;min-width:50px;font-size:10px">Total</th>' + '<th class="ip-col-th">💡 IP</th></tr></thead><tbody>';
 
   DEPTS.forEach(dept => {
     const dGroups = GROUPS.filter(g => g.dept === dept.name);
@@ -976,7 +1193,7 @@ function buildHeatmap() {
         html += `<td style="text-align:center"><span class="heat-cell ${cls}" onclick="openDrillModal('${escHtml(dept.name)}','${k}','${escHtml(AREA_LABELS[i])}','${AREA_PAGES[i]}')" title="${countAny} groups">${score}<span style="font-size:9px;opacity:.7">(${countAny})</span></span></td>`;
       }
     });
-    html += `<td style="text-align:center;font-size:11px;color:var(--muted);font-weight:600">${rowTotal}</td></tr>`;
+    html += `<td style="text-align:center;font-size:11px;color:var(--muted);font-weight:600">${rowTotal}</td>` + `<td style="text-align:center;padding:4px 6px">${renderHeatIpCell(dGroups)}</td></tr>`;
   });
 
   // Totals row
@@ -1045,6 +1262,7 @@ function groupModalItem(g, areaKey, color, score) {
       <div class="gdept">${escHtml(deptShort(g.dept))} · ${escHtml(g.cat)}</div>
       <div class="gfocus">${escHtml(g.focus)}</div>
       ${piStr}
+      ${renderModalBadges(g.id)}
     </div>
   </div>`;
 }
@@ -1287,7 +1505,15 @@ function buildAreaPage(areaKey, idx) {
       <div class="placeholder-items">${items.map(x => `<span class="placeholder-chip">${x}</span>`).join('')}</div>
     </div>`;
 
-  return `<div class="page" id="page-${page}">
+  return `
+<div class="page" id="page-ip">
+  <h2 class="ip-panel-title">💡 IP & Commercialisation</h2>
+  <p class="ip-panel-sub">Spinouts, R2B projects, confirmed patents, and ecosystem companies linked to Faculty of Science research groups · March 2026</p>
+  <div class="ip-stats-row" id="ipStatsRow"></div>
+  <div id="ipPanelContent"></div>
+</div>
+
+<div class="page" id="page-${page}">
     <div class="back-btn" onclick="showPage('overview',document.querySelectorAll('.nav-tab')[0])">← Back to Overview</div>
     <div class="detail-header" style="background:color-mix(in srgb,${color} 8%,white);border-left-color:${color}">
       <div class="detail-icon">${icon}</div>
@@ -1438,6 +1664,7 @@ function renderExplorer() {
       <td style="font-size:11px;color:var(--muted)">${escHtml(g.cat)}</td>
       ${AREA_KEYS.map(k => `<td style="text-align:center"><span class="score-chip sc-${g[k]}">${g[k]||'—'}</span></td>`).join('')}
       <td style="text-align:center">${bridge || '<span style="font-size:11px;color:var(--light)">' + spans + '</span>'}</td>
+      <td>${renderBadges(g.id)}</td>
     </tr>`;
   }).join('');
 }
@@ -1663,6 +1890,159 @@ function goPage(pageKey, page) {
   renderExplorer();
   setupSearch();
 })();
+
+// ═══════════════════════════════════════════════
+// IP PANEL
+// ═══════════════════════════════════════════════
+
+const IP_PANEL_DATA = [
+  // Each: { id, patentDesc, patentNums, notes }
+  { id:96,  patentDesc:"Multi-patent CESS® portfolio (drug particle nanonization, 10–200nm via supercritical CO₂) + 7 granted X-ray CT/EIT imaging patents (US×4, FI×2, CN×1) + 2 WIPO PCT pending for HIFU e-waste gold recovery",
+            patentNums:"CESS®: multi-patent (Nasdaq-listed, numbers undisclosed) · CT imaging: US7813469, US7269241, US7215730, US7274766, FI117744, FI119080, CN103099616B · FutuMine: WO2023281159A1, WO2024062155A1",
+            notes:"Most IP-active single laboratory in FoS. Source: Siltanen publications page; PMC competing interests disclosure; Nanoform prospectus." },
+  { id:87,  patentDesc:"7 confirmed patents in X-ray tomography, EIT, and panoramic dental imaging. Active BF grant (€279k) with Planmed for CBCT head imaging — near-term new patent expected.",
+            patentNums:"US7813469, US7269241, US7215730, US7274766, FI117744, FI119080, CN103099616B (co-inventor with id:96 ETLA group)",
+            notes:"Source: Siltanen personal publications page siltanen-research.net/publications/. BF grant confirmed on grants page." },
+  { id:18,  patentDesc:"Patent filed Oct 2024: AuPt bimetallic antenna-reactor nanoparticles for green hydrogen and ammonia production using sunlight. 6× improvement in H₂ evolution vs commercial Pt/C.",
+            patentNums:"Filed October 2024 — specific number not yet public. Source: UH Faculty of Science news Oct 2024; HIS ReLIGHT project page.",
+            notes:"ReLIGHT R2B runs to autumn 2025. Spinout company target. Prof. Camargo describes himself as 'scientific lead of ReLIGHT, a pre-spin-out company' (camargolab.com)." },
+  { id:14,  patentDesc:"1 granted + 2 pending patents: poly(2-oxazoline)-based hydrogel materials for 3D bioprinting of cells. Prof. Luxenhofer explicitly confirmed on HIS project page.",
+            patentNums:"1 granted + 2 pending (numbers not publicly disclosed). Source: HIS HydroxGel project page. ChemRxiv competing interests disclosure confirms patent applications.",
+            notes:"HydroxGel R2B ran 2022–2025 with commercial production target by 2025." },
+  { id:127, patentDesc:"1 granted + 1 pending patent: scalable synthesis process for 1,5,7-triazabicyclodecene (TBD) superbase. Applications in plastic recycling, biofuel production (FAME), CO₂ capture.",
+            patentNums:"1 granted + 1 pending (numbers not publicly disclosed). Source: HIS SuperBase Solutions project page.",
+            notes:"Global addressable market for TBD estimated at €9B (HIS page). Industrial-scale pilot readiness target." },
+  { id:11,  patentDesc:"Patent signal: mid-infrared photoacoustic laser spectroscopy for black carbon detection. Sub-parts-per-trillion sensitivity — clear novel instrumentation advance over prior art. No filing confirmed.",
+            patentNums:"Patent signal only — no number confirmed as of March 2026. EU UFP regulation creates commercial pull.",
+            notes:"SootSense R2B active. Prof. Vainio has BF project funding. Instrumentation-based technology where specific measurement configurations are typically patentable." },
+  { id:102, patentDesc:"Patent signal: UFP (<100nm) monitoring instrument with simplified design (2–10× less liquid consumption, CEN-compliant, IoT-ready). Team actively seeking spinout and investors.",
+            patentNums:"Patent signal only — spinout search active, IP preparation likely imminent. Source: HIS IDEAL AQ project page (fetched March 2026).",
+            notes:"IDEAL AQ corrected from 'water quality' — actually atmospheric UFP monitoring. Dr. Kangasluoma is also scientist at Karsa." },
+];
+
+let ipPanelBuilt = false;
+
+function buildIpPanel() {
+  if (ipPanelBuilt) return;
+  ipPanelBuilt = true;
+
+  // Stats
+  let totalSpinout=0, totalR2B=0, totalPatent=0, totalSignal=0, totalEco=0;
+  Object.values(GROUP_BADGES).forEach(badges => {
+    badges.forEach(b => {
+      if (b.type==='spinout')    totalSpinout++;
+      else if (b.type==='r2b')   totalR2B++;
+      else if (b.type==='patent') totalPatent++;
+      else if (b.type==='signal') totalSignal++;
+      else if (b.type==='ecosystem') totalEco++;
+    });
+  });
+
+  document.getElementById('ipStatsRow').innerHTML = [
+    ['💙', totalSpinout, 'Spinout links', '#1e40af'],
+    ['💚', totalR2B,     'R2B project links', '#166534'],
+    ['💜', totalPatent,  'Patent assets confirmed', '#5b21b6'],
+    ['🟠', totalSignal,  'Patent signals', '#92400e'],
+    ['🩷', totalEco,     'Ecosystem companies', '#9d174d'],
+  ].map(([icon, num, label, color]) =>
+    `<div class="ip-stat-card">
+      <div class="ip-stat-num" style="color:${color}">${num}</div>
+      <div class="ip-stat-label">${icon} ${label}</div>
+    </div>`
+  ).join('');
+
+  // Build group cards — only groups that have badges
+  const groupIds = Object.keys(GROUP_BADGES).map(Number);
+  
+  // Sort: patent groups first, then spinouts, then R2B only, then signals
+  const rank = id => {
+    const b = GROUP_BADGES[id] || [];
+    if (b.some(x=>x.type==='patent')) return 0;
+    if (b.some(x=>x.type==='spinout')) return 1;
+    if (b.some(x=>x.type==='r2b')) return 2;
+    if (b.some(x=>x.type==='signal')) return 3;
+    return 4;
+  };
+  groupIds.sort((a,b) => rank(a) - rank(b));
+
+  let html = '';
+
+  // Section: Confirmed Patents
+  html += '<div class="ip-section-hdr">★ Confirmed & Pending Patents</div>';
+  groupIds.filter(id => (GROUP_BADGES[id]||[]).some(b=>b.type==='patent')).forEach(id => {
+    html += buildIpCard(id);
+  });
+
+  // Section: Active Spinouts
+  html += '<div class="ip-section-hdr">● Active Spinouts (no confirmed patent)</div>';
+  groupIds.filter(id => {
+    const b = GROUP_BADGES[id]||[];
+    return b.some(x=>x.type==='spinout') && !b.some(x=>x.type==='patent');
+  }).forEach(id => { html += buildIpCard(id); });
+
+  // Section: R2B Projects
+  html += '<div class="ip-section-hdr">● R2B Projects (no spinout or patent)</div>';
+  groupIds.filter(id => {
+    const b = GROUP_BADGES[id]||[];
+    return b.some(x=>x.type==='r2b') && !b.some(x=>x.type==='spinout') && !b.some(x=>x.type==='patent');
+  }).forEach(id => { html += buildIpCard(id); });
+
+  // Section: Ecosystem
+  html += '<div class="ip-section-hdr">◆ Ecosystem Companies (professor-founded, not formal UH spinout)</div>';
+  groupIds.filter(id => (GROUP_BADGES[id]||[]).some(b=>b.type==='ecosystem')).forEach(id => {
+    html += buildIpCard(id);
+  });
+
+  // Section: Patent Signals
+  html += '<div class="ip-section-hdr">◌ Patent Signals (likely near-term, not yet filed)</div>';
+  groupIds.filter(id => {
+    const b = GROUP_BADGES[id]||[];
+    return b.some(x=>x.type==='signal') && !b.some(x=>x.type==='patent');
+  }).forEach(id => { html += buildIpCard(id); });
+
+  document.getElementById('ipPanelContent').innerHTML = html;
+}
+
+function buildIpCard(id) {
+  const g = GROUPS.find(x => x.id === id);
+  if (!g) return '';
+  const badges = GROUP_BADGES[id] || [];
+  const extra = IP_PANEL_DATA.find(d => d.id === id);
+
+  const badgeHtml = badges.map(b =>
+    `<span class="ip-badge ip-badge-${b.type}" title="${b.tip}">${b.label}</span>`
+  ).join('');
+
+  const piShort = g.pi ? g.pi.split('(')[0].trim() : '';
+
+  let detailHtml = '';
+  if (extra) {
+    detailHtml += `<div class="ip-detail">${extra.patentDesc}</div>`;
+    if (extra.patentNums) {
+      detailHtml += `<div class="ip-patent-nums">${extra.patentNums}</div>`;
+    }
+    if (extra.notes) {
+      detailHtml += `<div class="ip-detail" style="margin-top:4px;font-size:10.5px;color:var(--light)">${extra.notes}</div>`;
+    }
+  } else {
+    // Generate from badge tips
+    const tips = [...new Set(badges.map(b => b.tip))];
+    detailHtml += `<div class="ip-detail">${tips.join(' · ')}</div>`;
+  }
+
+  return `<div class="ip-group-card">
+    <div class="ip-left">
+      <div class="ip-gname">${escHtml(g.group)}</div>
+      <div class="ip-gdept">${escHtml(deptShort(g.dept))}</div>
+      <div class="ip-gpi">${escHtml(piShort)}</div>
+    </div>
+    <div class="ip-right">
+      <div class="ip-badge-row">${badgeHtml}</div>
+      ${detailHtml}
+    </div>
+  </div>`;
+}
+
 </script>
 </body>
 </html>
