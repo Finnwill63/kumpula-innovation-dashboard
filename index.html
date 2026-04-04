@@ -1530,7 +1530,7 @@ function buildAreaPage(areaKey, idx) {
         <div class="inner-tab" onclick="switchTab(this,'${page}-community')">Community</div>
         <div class="inner-tab" onclick="switchTab(this,'${page}-pipeline')">Pipeline</div>
         <div class="inner-tab" onclick="switchTab(this,'${page}-connections')">Connections</div>
-        <div class="inner-tab" onclick="switchTab(this,'${page}-publications');loadPubs('${page}')">Publications 🔴</div>
+        <div class="inner-tab" onclick="switchTab(this,'${page}-publications');loadPubs('${page}')">Publications ⚡</div>
       </div>
       <div id="${page}-research" class="inner-pane active">${researchHtml}</div>
       <div id="${page}-market" class="inner-pane">${buildMarketPane(mKey, color)}</div>
@@ -1764,16 +1764,21 @@ const OPENALEX_QUERIES = {
   resilience: 'cyber security resilience critical infrastructure Helsinki'
 };
 
+// ── Publications via Cloudflare Worker proxy (CORS-safe in all browsers) ──
+const PUBS_WORKER = 'https://kumpula-pubs.william-cardwell.workers.dev';
+
 async function fetchOpenAlex(query, sort, filter, page) {
   const sortParam = sort === 'cited' ? 'cited_by_count:desc' : 'publication_date:desc';
-  const url = 'https://api.openalex.org/works?filter=institutions.ror:https%3A%2F%2Fror.org%2F040af2s57' +
-    (filter ? ',' + filter : '') +
-    '&search=' + encodeURIComponent(query) +
-    '&sort=' + sortParam +
-    '&per-page=' + PER_PAGE + '&page=' + page +
-    '&mailto=research@helsinki.fi';
-  const r = await fetch(url);
-  if (!r.ok) throw new Error('OpenAlex ' + r.status);
+  const params = new URLSearchParams({
+    filter: 'institutions.ror:https://ror.org/040af2s57' + (filter ? ',' + filter : ''),
+    search: query,
+    sort: sortParam,
+    'per-page': PER_PAGE,
+    page: page,
+    select: 'id,title,doi,publication_year,cited_by_count,authorships,primary_location,open_access'
+  });
+  const r = await fetch(PUBS_WORKER + '?' + params.toString());
+  if (!r.ok) throw new Error('Worker ' + r.status);
   return r.json();
 }
 
@@ -1807,9 +1812,7 @@ async function loadPubs(pageKey) {
     pubLoading[pageKey] = false;
     if (listEl) listEl.innerHTML = `<div class="pub-error">
       <strong>Could not load publications.</strong><br>
-      Open in <strong>Firefox</strong> or run
-      <code style="background:#fee;padding:1px 4px;border-radius:3px">python3 -m http.server 8080</code>
-      then visit <strong>localhost:8080</strong>.<br><br>
+      The publications proxy may be temporarily unavailable. Try refreshing in a moment.<br><br>
       <a href="https://research.helsinki.fi/en/publications/" target="_blank" style="color:#c53030">UH Research Portal ↗</a>
       &nbsp;·&nbsp;
       <a href="https://openalex.org/works?filter=institutions.ror:https%3A%2F%2Fror.org%2F040af2s57" target="_blank" style="color:#c53030">OpenAlex ↗</a>
