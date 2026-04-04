@@ -1770,7 +1770,7 @@ const PUBS_WORKER = 'https://kumpula-pubs.william-cardwell.workers.dev';
 async function fetchOpenAlex(query, sort, filter, page) {
   const sortParam = sort === 'cited' ? 'cited_by_count:desc' : 'publication_date:desc';
   const params = new URLSearchParams({
-    filter: 'institutions.ror:https://ror.org/040af2s57' + (filter ? ',' + filter : ''),
+    filter: 'institutions.ror:https://ror.org/040af2s02' + (filter ? ',' + filter : ''),
     search: query,
     sort: sortParam,
     'per-page': PER_PAGE,
@@ -1815,7 +1815,7 @@ async function loadPubs(pageKey) {
       The publications proxy may be temporarily unavailable. Try refreshing in a moment.<br><br>
       <a href="https://research.helsinki.fi/en/publications/" target="_blank" style="color:#c53030">UH Research Portal ↗</a>
       &nbsp;·&nbsp;
-      <a href="https://openalex.org/works?filter=institutions.ror:https%3A%2F%2Fror.org%2F040af2s57" target="_blank" style="color:#c53030">OpenAlex ↗</a>
+      <a href="https://openalex.org/works?filter=institutions.ror:https%3A%2F%2Fror.org%2F040af2s02" target="_blank" style="color:#c53030">OpenAlex ↗</a>
     </div>`;
     if (totalEl) totalEl.textContent = '';
   }
